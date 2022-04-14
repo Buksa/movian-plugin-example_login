@@ -1,0 +1,15 @@
+{
+    "type": "ecmascript",
+    "apiversion": 2,
+    "id": "example_login",
+    "file": "index.js",
+    "showtimeVersion": "5",
+    "version": "0.0.1",
+    "author": "Buksa",
+    "title": "example_login",
+    "icon": "logo.png",
+    "category": "video",
+    "synopsis": "",
+    "description": "",
+    "homepage": "https://github.com/Buksa/movian-plugin-example_login"
+}
