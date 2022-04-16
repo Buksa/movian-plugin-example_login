@@ -139,7 +139,7 @@ new page.Route(PREFIX + ':logout', function (page) {
 //   "body": null,
 //   "method": "GET"
 // });
-    http.request(BASE_URL + '/index.php?action=logout');
+    http.request(BASE_URL + 'index.php?action=logout');
     page.loading = false;
     //redirect na glavnuu
     page.redirect(PREFIX + ':start');
