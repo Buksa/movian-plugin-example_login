@@ -2,7 +2,7 @@ var plugin = JSON.parse(Plugin.manifest);
 var service = require('movian/service');
 var PREFIX = plugin.id;
 var LOGO = Plugin.path + 'logo.png';
-var BASE_URL = 'https://flarrowfilms.com/';
+var BASE_URL = 'https://megapeer.vip/';
 
 var UA = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0.1'
 var page = require('showtime/page');
@@ -29,7 +29,7 @@ new page.Route(PREFIX + ':start', function (page) {
   
     // /// req on base_url
     // code для консоли
-    // fetch("https://flarrowfilms.com/", {
+    // fetch("https://megapeer.vip/", {
     //     "referrerPolicy": "strict-origin-when-cross-origin",
     //     "body": null,
     //     "method": "GET"
@@ -62,28 +62,30 @@ new page.Route(PREFIX + ':login', function (page, showAuth, token) {
     //если нет узернаме паса то
     if (credentials.username !== '' && credentials.password !== '') {
       //делаем запрос
-    //   fetch("https://flarrowfilms.com/", {
-    //     "headers": {
-    //       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    //       "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-    //       "cache-control": "no-cache",
-    //       "content-type": "application/x-www-form-urlencoded",
-    //       "pragma": "no-cache",
-    //       "sec-fetch-dest": "document",
-    //       "sec-fetch-mode": "navigate",
-    //       "sec-fetch-site": "same-origin",
-    //       "sec-fetch-user": "?1",
-    //       "sec-gpc": "1",
-    //       "upgrade-insecure-requests": "1",
-    //       "cookie": "PHPSESSID=62evo4lgm5ci9sj8o29eqapbr7",
-    //       "Referer": "https://flarrowfilms.com/",
-    //       "Referrer-Policy": "strict-origin-when-cross-origin"
-    //     },
-    //     "body": "login_name=bugger&login_password=password1&login=submit",
-    //     "method": "POST"
-    //   });
+      // fetch("https://megapeer.vip/takelogin.php", {
+      //   "headers": {
+      //     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+      //     "accept-language": "en-US,en;q=0.9",
+      //     "cache-control": "max-age=0",
+      //     "content-type": "application/x-www-form-urlencoded",
+      //     "sec-ch-ua": "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Brave\";v=\"120\"",
+      //     "sec-ch-ua-mobile": "?0",
+      //     "sec-ch-ua-platform": "\"Windows\"",
+      //     "sec-fetch-dest": "document",
+      //     "sec-fetch-mode": "navigate",
+      //     "sec-fetch-site": "same-origin",
+      //     "sec-fetch-user": "?1",
+      //     "sec-gpc": "1",
+      //     "upgrade-insecure-requests": "1",
+      //     "cookie": "PHPSESSID=vgacv3a225difnhk89erhvcrv2",
+      //     "Referer": "https://megapeer.vip/enter",
+      //     "Referrer-Policy": "strict-origin-when-cross-origin"
+      //   },
+      //   "body": "username=uzver&password=zzzparolzzz",
+      //   "method": "POST"
+      // });
 
-      v = http.request(BASE_URL, {
+      v = http.request('https://megapeer.vip/takelogin.php', {
         //не перенапровлять
         noFollow: true,
         //не выдовать ошибку при 404
@@ -93,10 +95,10 @@ new page.Route(PREFIX + ':login', function (page, showAuth, token) {
         // пост дата для запроса с
         postdata: {
           //user
-          login_name: credentials.username,
+          username: credentials.username,
           //pass
-          login_password: credentials.password,
-          login: 'submit'
+          password: credentials.password,
+          //login: 'submit'
         },
        headers: {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -104,12 +106,13 @@ new page.Route(PREFIX + ':login', function (page, showAuth, token) {
           "cache-control": "no-cache",
           "content-type": "application/x-www-form-urlencoded",
           'User-Agent': UA,
-          'Referer': BASE_URL,
+          'Referer': 'https://megapeer.vip/enter',
           'Accept-Encoding': 'gzip, deflate',
           'Accept-Language': 'en-US,en;q=0.8,ru;q=0.6'
         }
       });
-      console.error('status code:'+v.statuscode) 
+      console.error('status code:'+v.statuscode)
+      console.error(v.toString());
       if (v.statuscode == '200') {
         console.log('status 200');
       }
